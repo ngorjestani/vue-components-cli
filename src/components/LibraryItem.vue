@@ -4,8 +4,8 @@
       <component :is="typeOfItem" :item="item"></component>
     </div>
     <div class="card-footer">
-      <button class="btn btn-secondary" v-if="!item.isAvailable()" @click="item.checkIn()">Check Out</button>
-      <button class="btn btn-secondary" v-else @click="item.checkOut()">Check In</button>
+      <button class="btn btn-secondary" v-if="!item.isAvailable()" @click="item.checkIn()">Check In</button>
+      <button class="btn btn-secondary" v-else @click="item.checkOut()">Check Out</button>
       <button class="btn btn-secondary" @click="item.remove()">Remove</button>
     </div>
   </div>
