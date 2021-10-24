@@ -14,6 +14,7 @@
 <script>
 import Book from "@/components/Book";
 import Movie from "@/components/Movie";
+import Album from "@/components/Album";
 
 export default {
   name: "LibraryItem",
@@ -21,6 +22,7 @@ export default {
   components: {
     Book,
     Movie,
+      Album,
   },
 
   props: {
