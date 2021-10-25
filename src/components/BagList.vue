@@ -24,7 +24,7 @@ export default {
 
     methods: {
         checkOutItems() {
-            this.$emit('checkOutItems', this.bag);
+            this.bag.checkOut();
         }
     }
 }

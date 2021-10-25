@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="container-fluid mt-3">
         <Library @addToBag="addToBag" :library="library"></Library>
-        <BagList :bag="this.bag" @checkOutItems="checkOutBagItems"></BagList>
+        <BagList :bag="this.bag"></BagList>
     </div>
 </template>
 
@@ -38,16 +38,6 @@ export default {
     methods: {
         addToBag(item) {
             this.bag.addItem(item);
-        },
-
-        checkOutBagItems(bag) {
-            for (let libraryItem in this.library) {
-                if (bag.some(b => b.id === libraryItem.id)) {
-                    libraryItem.item.checkOut();
-                    console.log("items match");
-                }
-            }
-            this.bag.removeItems();
         },
     },
 }
