@@ -7,6 +7,7 @@
             <button class="btn btn-secondary" v-if="!item.isAvailable()" @click="item.checkIn()">Check In</button>
             <button class="btn btn-secondary" v-else @click="item.checkOut()">Check Out</button>
             <button class="btn btn-secondary" @click="item.remove()">Remove</button>
+            <button class="btn btn-secondary" @click="addToBag">Add To Bag</button>
         </div>
     </div>
 </template>
@@ -32,6 +33,12 @@ export default {
     computed: {
         typeOfItem() {
             return this.item.constructor.name;
+        },
+    },
+
+    methods: {
+        addToBag() {
+            this.$emit('addToBag', this.item);
         },
     },
 }

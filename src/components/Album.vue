@@ -1,5 +1,5 @@
 <template>
-    <div class="book">
+    <div class="album">
         <h3 class="card-title">{{ item.title }}</h3>
         <p class="card-text">{{ item.artist }}</p>
         <p class="card-text">{{ item.trackCount }}</p>
