@@ -1,5 +1,6 @@
 <template>
     <div id="app" class="container-fluid mt-3">
+        <Search></Search>
         <Library @addToBag="addToBag" :library="library"></Library>
         <BagList :bag="this.bag"></BagList>
     </div>
@@ -13,10 +14,12 @@ import LibraryCollection from "@/models/LibraryCollection";
 import Book from "@/models/Book";
 import Movie from "@/models/Movie";
 import Album from "@/models/Album";
+import Search from "@/components/Search";
 
 export default {
     name: 'App',
     components: {
+        Search,
         Library,
         BagList,
     },
@@ -50,6 +53,5 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
 }
 </style>
