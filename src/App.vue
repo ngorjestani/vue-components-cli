@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="container-fluid mt-3">
-        <Search></Search>
+        <Search @searchComplete="updateResults"></Search>
         <Library @addToBag="addToBag" :library="library"></Library>
         <BagList :bag="this.bag"></BagList>
     </div>
@@ -33,7 +33,8 @@ export default {
                 .addItem(new Album('Revolver', 'The Beatles', 14))
                 .addItem(new Book('Wild Thing', 'Teen', 150))
                 .addItem(new Movie('Scarface', 'Drama', 117))
-                .addItem(new Album('Animals', 'Pink Floyd', 5))
+                .addItem(new Album('Animals', 'Pink Floyd', 5)),
+            searchResults: [],
 
         }
     },
@@ -41,6 +42,12 @@ export default {
     methods: {
         addToBag(item) {
             this.bag.addItem(item);
+        },
+        updateResults(results) {
+            for (let item in results) {
+                this.searchResults.push(item);
+            }
+            console.log(this.searchResults);
         },
     },
 }
