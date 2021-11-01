@@ -15,6 +15,7 @@ import Book from "@/models/Book";
 import Movie from "@/models/Movie";
 import Album from "@/models/Album";
 import Search from "@/components/Search";
+import MediaFactory from "@/models/MediaFactory";
 
 export default {
     name: 'App',
@@ -44,10 +45,13 @@ export default {
             this.bag.addItem(item);
         },
         updateResults(results) {
-            for (let item in results) {
-                this.searchResults.push(item);
+            let mediaFactory = new MediaFactory()
+
+            this.searchResults = mediaFactory.getItems(results);
+
+            for (let result in this.searchResults) {
+                this.library.addItem(result);
             }
-            console.log(this.searchResults);
         },
     },
 }
